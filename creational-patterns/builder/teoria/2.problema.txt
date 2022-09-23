@@ -1,0 +1,21 @@
+Imagine um objeto complexo que necessite de uma inicialização passo a passo trabalhosa de muitos campos e objetos agrupados.
+Tal código de inicialização fica geralmente enterrado dentro de um construtor monstruoso com vários parâmetros. 
+Ou pior: espalhado por todo o código cliente.
+
+Você pode tornar o programa muito complexo ao criar subclasses para cada possível configuração de um objeto.
+
+Por exemplo, vamos pensar sobre como criar um objeto Casa. 
+Para construir uma casa simples, você precisa construir quatro paredes e um piso, instalar uma porta, encaixar um par de janelas, e construir um teto.
+Mas e se você quiser uma casa maior e mais iluminada, com um jardim e outras miudezas (como um sistema de aquecimento, encanamento, e fiação elétrica)?
+
+A solução mais simples é estender a classe base Casa e criar um conjunto de subclasses para cobrir todas as combinações de parâmetros.
+Mas eventualmente você acabará com um número considerável de subclasses. 
+Qualquer novo parâmetro, tal como o estilo do pórtico, irá forçá-lo a aumentar essa hierarquia cada vez mais.
+
+Há outra abordagem que não envolve a propagação de subclasses.
+Você pode criar um construtor gigante diretamente na classe Casa base com todos os possíveis parâmetros que controlam o objeto casa. 
+Embora essa abordagem realmente elimine a necessidade de subclasses, ela cria outro problema.
+
+O construtor com vários parâmetros tem um lado ruim: nem todos os parâmetros são necessários todas as vezes.
+Na maioria dos casos a maioria dos parâmetros não será usada, tornando as chamadas do construtor em algo feio de se ver. 
+Por exemplo, apenas algumas casas têm piscinas, então os parâmetros relacionados a piscinas serão inúteis nove em cada dez vezes.
